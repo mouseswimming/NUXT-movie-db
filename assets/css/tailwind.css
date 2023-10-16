@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden !important;
+}
+
+.n-link {
+  @apply opacity-50 hover:opacity-100 hover:text-gray-200 transition;
+}
+
+.aspect-10\/16 {
+  aspect-ratio: 10/16;
+}
