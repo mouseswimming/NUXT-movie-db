@@ -26,9 +26,7 @@ function scrollRight() {
 
 <template>
   <div class="flex py-3 px-10 items-center mt-5 place-content-between">
-    <div class="text-2xl">
-      <slot name="title" />
-    </div>
+    <div class="text-2xl"><slot name="title" /></div>
     <slot name="more" />
   </div>
   <div class="relative base-container">
@@ -37,20 +35,6 @@ function scrollRight() {
         <slot />
       </div>
     </div>
-    <!-- <button
-      class="carousel-nav-button left-button"
-      title="Scroll left"
-      @click="scrollLeft()"
-    >
-      <Icon name="bx:caret-left-circle" />
-    </button>
-    <button
-      class="carousel-nav-button right-button"
-      title="Scroll right"
-      @click="scrollRight()"
-    >
-      <Icon name="bx:caret-right-circle" />
-    </button> -->
   </div>
 </template>
 

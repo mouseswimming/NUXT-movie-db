@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Image } from "~/types";
 import { provideImageModal } from "~/composables/item";
-import { TMDB_IMAGE_BASE_THUMBNAIL } from "~/constants/images";
+import { TMDB_IMAGE_BASE_ORIGINAL } from "~/constants/images";
 
 const images = ref<Image[] | null>(null);
 const index = ref(0);
@@ -67,7 +67,7 @@ onClickOutside(
     </button>
     <img
       ref="target"
-      :src="`${TMDB_IMAGE_BASE_THUMBNAIL}/${current.file_path}`"
+      :src="`${TMDB_IMAGE_BASE_ORIGINAL}/${current.file_path}`"
       alt=""
       class="max-h-full max-w-full object-contain border-2 border-gray-400/10"
     />

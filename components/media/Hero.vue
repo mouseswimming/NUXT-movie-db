@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Media } from "~/types";
 import { formatTime } from "~/composables/utils";
-import { TMDB_IMAGE_BASE_THUMBNAIL } from "~/constants/images";
+import { TMDB_IMAGE_BASE_ORIGINAL } from "~/constants/images";
 
 const props = withDefaults(
   defineProps<{
@@ -16,8 +16,9 @@ const mounted = useMounted();
 
 const trailer = computed(() => getTrailer(props.item));
 
+const showModal = useIframeModal();
 const playTrailer = () => {
-  console.log("play trailer");
+  return showModal(trailer.value!);
 };
 </script>
 
@@ -28,7 +29,7 @@ const playTrailer = () => {
   >
     <div class="absolute top-0 right-0 bottom-0 max-lg:left-0 lg: left-1/3">
       <img
-        :src="`${TMDB_IMAGE_BASE_THUMBNAIL}/${item.backdrop_path}`"
+        :src="`${TMDB_IMAGE_BASE_ORIGINAL}/${item.backdrop_path}`"
         :alt="item.title || item.name"
         class="object-cover h-full w-full"
       />

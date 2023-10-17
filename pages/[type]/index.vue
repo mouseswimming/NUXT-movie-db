@@ -18,7 +18,10 @@ const AsyncWrapper = defineComponent(async (_, ctx) => {
 });
 
 useHead({
-  title: type.value === "movie" ? "Movies" : "TV Shows",
+  title:
+    type.value === "movie"
+      ? "Movies - Vivian's Media Station"
+      : "TV Shows - Vivian's Media Station",
 });
 
 definePageMeta({
