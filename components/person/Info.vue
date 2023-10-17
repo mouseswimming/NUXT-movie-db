@@ -6,6 +6,12 @@ import { TMDB_IMAGE_BASE_THUMBNAIL } from "~/constants/images";
 const props = defineProps<{
   person: Person;
 }>();
+
+// externalIds: imdb id, wikidata_id, facebook_id, twitter_id
+const externalIds = computed(() => ({
+  ...props.person.external_ids,
+  homepage: props.person.homepage,
+}));
 </script>
 
 <template>
@@ -27,6 +33,7 @@ const props = defineProps<{
           v-text="person.biography"
         />
       </div>
+
       <div class="detail-info">
         <template v-if="person.known_for_department">
           <div>{{ $t("Known for") }}:</div>
@@ -49,6 +56,8 @@ const props = defineProps<{
           </div>
         </template>
       </div>
+
+      <ExternalLinks :links="externalIds" />
     </div>
   </div>
 </template>

@@ -50,4 +50,5 @@ definePageMeta({
       class="flex-1 w-60"
     />
   </CarouselBase>
+  <TheFooter />
 </template>

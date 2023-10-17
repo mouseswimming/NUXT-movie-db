@@ -26,6 +26,43 @@ useHead({
 <template>
   <div>
     <PersonDetails :person="person" />
+
+    <!-- Participated movies -->
+    <CarouselBase v-if="person.combined_credits?.cast?.length !== 0">
+      <template #title>
+        {{ $t("Known for") }}
+        <span class="text-sm opacity-70"
+          >({{ person.combined_credits?.cast?.length }})</span
+        >
+      </template>
+      <template v-for="i of person.combined_credits?.cast" :key="i.id">
+        <MediaCard
+          v-if="i.release_date"
+          :item="i"
+          type="movie"
+          class="flex-1 w-60"
+        />
+      </template>
+    </CarouselBase>
+
+    <!-- Actor Photos -->
+    <CarouselBase v-if="person.images?.profiles?.length !== 0">
+      <template #title>
+        {{ $t("Posters") }}
+        <span class="text-sm opacity-70"
+          >({{ person.images?.profiles.length }})</span
+        >
+      </template>
+      <template v-for="(i, idx) of person.images?.profiles" :key="i.id">
+        <PhotoCard
+          v-if="i.file_path"
+          :item="i"
+          :idx="idx"
+          :items="person.images?.profiles!"
+          class="flex-1 w-96"
+        />
+      </template>
+    </CarouselBase>
     <TheFooter />
   </div>
 </template>

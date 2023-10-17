@@ -1,6 +1,6 @@
 <template>
   <div class="h-full w-full overflow-hidden layout">
-    <div class="overflow-x-hidden overflow-y-auto">
+    <div class="overflow-x-hidden overflow-y-auto relative" data-scroll>
       <slot />
     </div>
     <NavBar class="lg:order-first" />

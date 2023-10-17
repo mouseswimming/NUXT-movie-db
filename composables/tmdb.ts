@@ -75,3 +75,34 @@ export function getPerson(id: string): Promise<Person> {
     include_image_language: "en",
   });
 }
+
+/**
+ * Get genre list
+ */
+export function getGenreList(
+  media: string
+): Promise<{ name: string; id: number }[]> {
+  return fetchTMDB(`genre/${media}/list`).then((res) => res.genres);
+}
+
+/**
+ * Discover media by genre
+ */
+export function getMediaByGenre(
+  media: string,
+  genre: string,
+  page = 1
+): Promise<PageResult<Media>> {
+  return fetchTMDB(`discover/${media}`, {
+    with_genres: genre,
+    page,
+  });
+}
+
+/**
+ * Search (searches movies, tv and people)
+ */
+
+export function searchShows(query: string, page = 1) {
+  return fetchTMDB("search/multi", { query, page });
+}

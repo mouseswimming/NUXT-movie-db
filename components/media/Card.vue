@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Media, MediaType } from "~/types";
 import { TMDB_IMAGE_BASE_THUMBNAIL } from "~/constants/images";
+import { formatRating } from "~/composables/utils";
 
 defineProps<{
   type: MediaType;
@@ -27,7 +28,7 @@ defineProps<{
     <div class="flex text-sm gap-2 items-center">
       <StarsRate class="w-20" :value="item.vote_average" />
       <div op60>
-        {{ item.vote_average }}
+        {{ formatRating(item.vote_average) }}
       </div>
     </div>
   </NuxtLink>

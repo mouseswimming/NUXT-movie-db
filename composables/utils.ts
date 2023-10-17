@@ -37,6 +37,10 @@ export function formatLang(iso: string) {
   return iso;
 }
 
+export function formatRating(rate: number) {
+  return Math.round(rate * 100) / 100;
+}
+
 export function useSingleton<T>() {
   const key = Symbol("singleton");
   return [

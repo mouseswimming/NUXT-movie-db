@@ -12,7 +12,7 @@ defineProps<{
   <MediaInfo :item="item" :type="type" />
 
   <!-- Videos carousel -->
-  <CarouselBase v-if="item.videos?.results">
+  <CarouselBase v-if="item.videos?.results.length !== 0">
     <template #title>
       {{ $t("Videos") }}
       <span class="text-sm opacity-70"
@@ -28,7 +28,7 @@ defineProps<{
   </CarouselBase>
 
   <!-- Photo carousel -->
-  <CarouselBase v-if="item.images?.posters">
+  <CarouselBase v-if="item.images?.posters.length !== 0">
     <template #title>
       {{ $t("Posters") }}
       <span class="text-sm opacity-70"
@@ -46,7 +46,7 @@ defineProps<{
   </CarouselBase>
 
   <!-- Cast carousel -->
-  <CarouselBase v-if="item.credits?.cast?.length">
+  <CarouselBase v-if="item.credits?.cast?.length !== 0">
     <template #title>
       {{ $t("Cast") }}
       <span class="text-sm opacity-70">({{ item.credits?.cast?.length }})</span>

@@ -10,7 +10,6 @@ const props = defineProps<{
 
 // when hit tail, auto load will start
 const tailEl = ref<HTMLDivElement>();
-const rootEl = ref<HTMLDivElement>();
 
 let page = 0;
 const isLoading = ref(false);

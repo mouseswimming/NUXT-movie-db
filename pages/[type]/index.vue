@@ -43,6 +43,6 @@ definePageMeta({
       :key="query.type + query.query"
       :query="query"
     />
-    <div>Footer Section</div>
+    <TheFooter />
   </div>
 </template>

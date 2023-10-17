@@ -11,8 +11,9 @@
     <NuxtLink to="/tv" title="TV shows" class="n-link">
       <Icon name="lucide:tv" class="text-2xl" />
     </NuxtLink>
-
-    <Icon name="iconamoon:search" class="text-2xl" />
+    <NuxtLink to="/search" title="Search" class="n-link">
+      <Icon name="iconamoon:search" class="text-2xl" />
+    </NuxtLink>
   </div>
 </template>
 
