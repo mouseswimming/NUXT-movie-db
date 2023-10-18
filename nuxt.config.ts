@@ -16,8 +16,13 @@ export default defineNuxtConfig({
       : {
           cache: { swr: true, maxAge: 120, staleMaxAge: 60, headersOnly: true },
         },
-    "/api/**": { cors: true },
-    "/api/tmdb/**": { swr: 3600 },
+    // "/api/**": { cors: true },
+    // "/api/tmdb/**": { swr: 3600 },
+  },
+  nitro: {
+    routeRules: {
+      "/**": { isr: false },
+    },
   },
   runtimeConfig: {
     tmdb: {

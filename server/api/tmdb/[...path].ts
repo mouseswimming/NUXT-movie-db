@@ -21,6 +21,9 @@ export default defineEventHandler(async (event) => {
         language: "en-US",
         ...query,
       },
+      headers: {
+        Accept: "application/json",
+      },
     });
   } catch (e: any) {
     const status = e?.response?.status || 500;
