@@ -6,11 +6,7 @@ const TMDB_API_URL = "https://api.themoviedb.org/3";
 export default defineEventHandler(async (event) => {
   // get query from url
   const query = getQuery(event.req.url!);
-  console.log("Fetching TMDB API", {
-    url: event.req.url,
-    query,
-    params: event.context.params,
-  });
+
   const config = useRuntimeConfig();
 
   if (!config.tmdb.apiKey) {

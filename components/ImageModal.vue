@@ -46,7 +46,6 @@ const nextBtn = ref(null);
 onClickOutside(
   target,
   () => {
-    console.log("click");
     images.value = null;
   },
   { ignore: [prevBtn, nextBtn] }
