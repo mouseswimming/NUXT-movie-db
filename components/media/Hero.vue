@@ -54,9 +54,14 @@ const playTrailer = () => {
           </div>
 
           <p
-            class="mt-5 opacity-80 leading-relaxed overflow-hidden line-clamp-3 max-w-[65ch] md:line-clamp-5 md:text-base"
+            class="mt-5 opacity-80 leading-relaxed overflow-hidden line-clamp-3 max-w-[65ch]"
           >
-            {{ item.overview }}
+            <span v-if="item.tagline" class="text-xl italic tracking-wide">
+              " {{ item.tagline }} "
+            </span>
+            <span v-else class="md:line-clamp-5 md:text-base">
+              {{ item.overview }}
+            </span>
           </p>
 
           <div v-if="trailer" class="py-5 hidden lg:block">

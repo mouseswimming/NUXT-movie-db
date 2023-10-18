@@ -89,6 +89,7 @@ export interface Media {
   vote_count: number;
   media_type?: MediaType;
   // details
+  tagline?: string;
   homepage?: string;
   runtime?: number;
   budget?: number;
