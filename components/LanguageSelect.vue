@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 const { locale, locales, setLocale } = useI18n();
 
-console.log(locales.value);
-
 type local = {
   code: string;
   name: string;
@@ -10,7 +8,6 @@ type local = {
 };
 
 const localOptions = computed(() => {
-  console.log(locales.value);
   return locales.value as local[];
 });
 
