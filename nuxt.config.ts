@@ -16,8 +16,6 @@ export default defineNuxtConfig({
       : {
           cache: { swr: true, maxAge: 120, staleMaxAge: 60, headersOnly: true },
         },
-    // "/api/**": { cors: true },
-    // "/api/tmdb/**": { swr: 3600 },
   },
   nitro: {
     routeRules: {
@@ -65,5 +63,17 @@ export default defineNuxtConfig({
     lazy: true,
     langDir: "internationalization",
     defaultLocale: "en",
+  },
+  vite: {
+    esbuild: {
+      drop: ["debugger"],
+      pure: [
+        "console.log",
+        "console.error",
+        "console.warn",
+        "console.debug",
+        "console.trace",
+      ],
+    },
   },
 });

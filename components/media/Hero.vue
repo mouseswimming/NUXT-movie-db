@@ -25,7 +25,7 @@ const playTrailer = () => {
 <template>
   <div
     :key="item.id"
-    class="relative aspect-square md:aspect-[3/2] lg:aspect-[25/6] bg-black"
+    class="relative aspect-square md:aspect-[3/2] lg:aspect-[25/7] bg-black"
   >
     <div class="absolute top-0 right-0 bottom-0 max-lg:left-0 lg: left-1/3">
       <img

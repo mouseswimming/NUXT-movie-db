@@ -13,8 +13,15 @@ const AsyncWrapper = defineComponent(async (_, ctx) => {
 
   const list = await listMedia(type.value, queries.value?.[0].query, 1);
   if (!list) return () => {};
-  const item = await getMedia(type.value, list.results?.[0].id);
-  return () => ctx.slots?.default?.({ item });
+
+  const promises = [];
+  for (let i = 0; i < 5; i++) {
+    promises.push(await getMedia(type.value, list.results[i].id));
+  }
+
+  const heroItems = await Promise.all(promises);
+
+  return () => ctx.slots?.default?.({ heroItems });
 });
 
 useHead({
@@ -35,10 +42,8 @@ definePageMeta({
 <template>
   <div class="overflow-x-hidden">
     <AsyncWrapper>
-      <template #default="{ item }">
-        <NuxtLink :to="`/${type}/${item.id}`">
-          <MediaHero :item="item" />
-        </NuxtLink>
+      <template #default="{ heroItems }">
+        <MediaHeroSlider :type="type" :items="heroItems" />
       </template>
     </AsyncWrapper>
     <CarouselAutoQuery
